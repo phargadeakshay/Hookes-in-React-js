@@ -1,18 +1,19 @@
 import { useRef, useEffect, useState } from 'react';
 
-const UseRefHookDemo = () => {
+const UseRefDemo2=() =>{
   const [showComponent, setShowComponent] = useState(false);
   const countRef = useRef(0);
 
+  const handleButtonClick = () => {
+    countRef.current += 1;
+    console.log(countRef.current)
+  }
   useEffect(() => {
     if (countRef.current >= 5) {
       setShowComponent(true);
     }
   }, [countRef]);
 
-  const handleButtonClick = () => {
-    countRef.current += 1;
-  }
 
   return (
     <div>
@@ -21,5 +22,7 @@ const UseRefHookDemo = () => {
     </div>
   );
 }
+export default UseRefDemo2
 
-export default UseRefHookDemo
+// it create mutable variable which will not re-render the components
+// 2. to access the DOM  Elements directly
